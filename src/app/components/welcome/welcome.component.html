@@ -1,0 +1,25 @@
+<div class="container mt-3">
+    <h2 class="text-center">Welcome {{ displayWelcomeUser.firstName }}</h2>
+    <hr/>
+    
+    <p>Enter a 4 Digit Code</p>
+    <form class="form-inline">
+        <input type="number"
+            class="form-control mb-2 mr-sm-2"
+            (keyup)="focusNext('input1', 'input2')"
+            id="input1">
+        <input type="number" 
+            class="form-control mb-2 mr-sm-2" 
+            (keyup)="focusNext('input2', 'input3')"
+            id="input2">
+        <input type="number" 
+            class="form-control mb-2 mr-sm-2" 
+            (keyup)="focusNext('input3', 'input4')"
+            id="input3">
+        <input type="number" 
+            class="form-control mb-2 mr-sm-2" 
+            (keyup)="submit('input4')"
+            id="input4">
+    </form>
+
+</div>

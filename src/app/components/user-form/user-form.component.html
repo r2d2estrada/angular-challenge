@@ -1,0 +1,57 @@
+<div class="container mt-3">
+    <form novalidate [formGroup]="userForm">
+        <h2 class="text-center">User Form</h2>
+        <hr/>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" 
+                class="form-control" 
+                id="firstName"
+                [(ngModel)]="userObj.firstName"
+                formControlName="firstName"
+                placeholder="Your Name">
+            <small class="form-text text-muted">Required *</small>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" 
+                class="form-control" 
+                id="lastName" 
+                [(ngModel)]="userObj.lastName"
+                formControlName="lastName"
+                placeholder="Your Last Name">
+            <small class="form-text text-muted">Required *</small>
+        </div>
+        <div class="form-group">
+            <small class="form-text text-muted">Provide at least one of the following</small>
+        </div>
+        <div formGroupName="additionalInfo">
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" 
+                    formControlName="email" 
+                    class="form-control" 
+                    [(ngModel)]="userObj.email"
+                    id="email" 
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" 
+                    formControlName="phone" 
+                    class="form-control" 
+                    [(ngModel)]="userObj.phone"
+                    id="phone" 
+                    placeholder="Enter phone">
+            </div>
+        </div>
+        <button type="submit" 
+            (click)="submitForm()"
+            class="btn btn-primary"
+            [disabled]="!userForm.valid">Submit</button>
+    </form>
+
+    <pre> 
+            Form Status: {{ userForm.status }}
+    </pre>
+</div>
