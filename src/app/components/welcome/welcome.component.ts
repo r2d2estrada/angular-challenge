@@ -20,7 +20,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   focusNext(currentElem, nextElem) {
-    const val = document.getElementById(currentElem).value;
+    const val = <HTMLInputElement>document.getElementById(currentElem).value;
     if (this.validateNumber(val)) {
       document.getElementById(nextElem).focus();
     }
